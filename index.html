@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Per Martina ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+    transition: 1s;
+}
+
+.container {
+    position: relative;
+}
+
+h1 {
+    font-size: 38px;
+}
+
+h2 {
+    margin-top: 10px;
+}
+
+img {
+    width: 220px;
+    border-radius: 20px;
+    margin: 20px 0;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 10px;
+    position: relative;
+}
+
+#yes {
+    background-color: #ff2e63;
+    color: white;
+}
+
+#no {
+    background-color: white;
+    color: #ff2e63;
+    position: absolute;
+}
+
+.final-message {
+    font-size: 50px;
+    font-weight: bold;
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="content">
+    <h1>Martina 💖</h1>
+    <p>Dal 25/01/2025 la mia vita è cambiata...</p>
+    <p>Ogni giorno con te è speciale.</p>
+    <h2>Vuoi essere la mia Valentina? 💌</h2>
+
+    <img src="foto.jpg.jpg" alt="Noi">
+
+    <div>
+        <button id="yes">Sì 💖</button>
+        <button id="no">No 😈</button>
+    </div>
+</div>
+
+<div class="final-message" id="final">
+    Lo sapevo ❤️
+</div>
+
+<!-- YOUTUBE NASCOSTO -->
+<iframe id="ytplayer"
+        width="0"
+        height="0"
+        src=""
+        frameborder="0"
+        allow="autoplay">
+</iframe>
+
+<script>
+const noButton = document.getElementById("no");
+const yesButton = document.getElementById("yes");
+const content = document.getElementById("content");
+const finalMessage = document.getElementById("final");
+const yt = document.getElementById("ytplayer");
+
+// NO si muove continuamente
+function moveButton() {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    noButton.style.left = x + "px";
+    noButton.style.top = y + "px";
+}
+
+setInterval(moveButton, 600);
+
+
+// QUANDO CLICCA SI
+yesButton.addEventListener("click", () => {
+
+    // Nasconde tutto
+    content.style.display = "none";
+
+    // Cambia sfondo
+    document.body.style.background = "linear-gradient(135deg, #ff2e63, #ff6f91)";
+
+    // Mostra messaggio finale
+    finalMessage.style.display = "block";
+
+    // INSERISCI QUI IL LINK YOUTUBE
+    yt.src = "https://www.youtube.com/embed/z4nhDtkzhRg?autoplay=1";
+});
+</script>
+
+</body>
+</html>
